@@ -1,6 +1,8 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class TreeProblems {
 
@@ -156,21 +158,21 @@ public class TreeProblems {
       // take every value, put it into an arrayList
       // loop through keyset and if the key doesnt exist in the arrayList, thats the root
 
-      List<T> myList = new ArrayList<>();
+      Set<T> children = new HashSet<>();
 
-      for (T key : tree.keySet())
+      for (T parent : tree.keySet())
       {
-        for (T value : tree.get(key))
+        for (T child : tree.get(parent))
         {
-          myList.add(value);
+          children.add(child);
         }
       }
 
-      for (T key : tree.keySet())
+      for (T node : tree.keySet())
       {
-        if (!myList.contains(key))
+        if (!children.contains(node))
         {
-          return key;
+          return node;
         }
       }
 
