@@ -154,10 +154,6 @@ public class TreeProblems {
    Hint: No recursion needed! Think about how you would do this by hand.
   */
   public static <T> T findRoot(Map<T, List<T>> tree) {
-      // root is node with NO parents, so root is node thats not in ANY values.
-      // take every value, put it into an arrayList
-      // loop through keyset and if the key doesnt exist in the arrayList, thats the root
-
       Set<T> children = new HashSet<>();
 
       for (T parent : tree.keySet())
