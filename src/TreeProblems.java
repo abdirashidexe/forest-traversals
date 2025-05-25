@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -151,6 +152,28 @@ public class TreeProblems {
    Hint: No recursion needed! Think about how you would do this by hand.
   */
   public static <T> T findRoot(Map<T, List<T>> tree) {
+      // root is node with NO parents, so root is node thats not in ANY values.
+      // take every value, put it into an arrayList
+      // loop through keyset and if the key doesnt exist in the arrayList, thats the root
+
+      List<T> myList = new ArrayList<>();
+
+      for (T key : tree.keySet())
+      {
+        for (T value : tree.get(key))
+        {
+          myList.add(value);
+        }
+      }
+
+      for (T key : tree.keySet())
+      {
+        if (!myList.contains(key))
+        {
+          return key;
+        }
+      }
+
     return null;
   }
 
